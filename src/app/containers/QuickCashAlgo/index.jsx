@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Container from '@material-ui/core/Container';
-import { Box, TextField } from '@material-ui/core';
+import { Box, Grid, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
 export function QuickCashAlgo() {
@@ -24,6 +24,7 @@ export function QuickCashAlgo() {
     };
 
     const resultsArr = [];
+    resultsArr.push(quickCash(value, 0));
     resultsArr.push(quickCash(value, 0.05));
     resultsArr.push(quickCash(value, 1));
     resultsArr.push(quickCash(value, 5));
@@ -46,11 +47,33 @@ export function QuickCashAlgo() {
             onChange={e => setValue(e.target.value)}
           />
 
-          {resultsArr.map(result => (
-            <Typography variant="body1" color="initial">
-              {result}
-            </Typography>
-          ))}
+          <Grid container>
+            <Grid item xs={6}>
+              {resultsArr.map((result, index) => (
+                <Typography variant="body1" color="initial" key={index}>
+                  {result}
+                </Typography>
+              ))}
+            </Grid>
+
+            <Grid item xs={6}>
+              <Typography variant="body1" color="initial">
+                (exact)
+              </Typography>
+              <Typography variant="body1" color="initial">
+                (0.05 increment)
+              </Typography>
+              <Typography variant="body1" color="initial">
+                (1 increment)
+              </Typography>
+              <Typography variant="body1" color="initial">
+                (5 increment)
+              </Typography>
+              <Typography variant="body1" color="initial">
+                (10 increment)
+              </Typography>
+            </Grid>
+          </Grid>
         </Box>
       </Container>
     </>
