@@ -4,6 +4,8 @@ import Container from '@material-ui/core/Container';
 import { Box, Grid, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
+const increments = [0.1, 1, 5, 10, 50, 100];
+
 export function QuickCashAlgo() {
   const precision = 2;
 
@@ -25,10 +27,9 @@ export function QuickCashAlgo() {
 
     const resultsArr = [];
     resultsArr.push(parseFloat(value).toFixed(precision));
-    resultsArr.push(quickCash(value, 0.1));
-    resultsArr.push(quickCash(value, 1));
-    resultsArr.push(quickCash(value, 5));
-    resultsArr.push(quickCash(value, 100));
+    increments.forEach(increment => {
+      resultsArr.push(quickCash(value, increment));
+    });
     setResultsArr(resultsArr);
   }, [value]);
 
@@ -60,18 +61,11 @@ export function QuickCashAlgo() {
               <Typography variant="body1" color="initial">
                 (exact)
               </Typography>
-              <Typography variant="body1" color="initial">
-                (0.1 increment)
-              </Typography>
-              <Typography variant="body1" color="initial">
-                (1 increment)
-              </Typography>
-              <Typography variant="body1" color="initial">
-                (5 increment)
-              </Typography>
-              <Typography variant="body1" color="initial">
-                (100 increment)
-              </Typography>
+              {increments.map(increment => (
+                <Typography variant="body1" color="initial">
+                  ({increment} increment)
+                </Typography>
+              ))}
             </Grid>
           </Grid>
         </Box>
