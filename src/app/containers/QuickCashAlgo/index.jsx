@@ -25,10 +25,10 @@ export function QuickCashAlgo() {
 
     const resultsArr = [];
     resultsArr.push(parseFloat(value).toFixed(precision));
-    resultsArr.push(quickCash(value, 0.05));
+    resultsArr.push(quickCash(value, 0.1));
     resultsArr.push(quickCash(value, 1));
     resultsArr.push(quickCash(value, 5));
-    resultsArr.push(quickCash(value, 10));
+    resultsArr.push(quickCash(value, 100));
     setResultsArr(resultsArr);
   }, [value]);
 
@@ -61,7 +61,7 @@ export function QuickCashAlgo() {
                 (exact)
               </Typography>
               <Typography variant="body1" color="initial">
-                (0.05 increment)
+                (0.1 increment)
               </Typography>
               <Typography variant="body1" color="initial">
                 (1 increment)
@@ -70,7 +70,7 @@ export function QuickCashAlgo() {
                 (5 increment)
               </Typography>
               <Typography variant="body1" color="initial">
-                (10 increment)
+                (100 increment)
               </Typography>
             </Grid>
           </Grid>
