@@ -7,29 +7,29 @@ import Typography from '@material-ui/core/Typography';
 export function QuickCashAlgo() {
   const precision = 2;
 
-  const round = v => {
-    return Math.ceil(v);
-  };
-
-  const rounding = function rounding(value, increment) {
-    return round(value / increment) * increment;
-  };
-
-  const quickCash = (value, increment) => {
-    return rounding(value, increment).toFixed(precision);
-  };
-
   const [value, setValue] = useState('');
   const [resultsArr, setResultsArr] = useState([]);
 
   useEffect(() => {
+    const round = v => {
+      return Math.ceil(v);
+    };
+
+    const rounding = function rounding(value, increment) {
+      return round(value / increment) * increment;
+    };
+
+    const quickCash = (value, increment) => {
+      return rounding(value, increment).toFixed(precision);
+    };
+
     const resultsArr = [];
     resultsArr.push(quickCash(value, 0.05));
     resultsArr.push(quickCash(value, 1));
     resultsArr.push(quickCash(value, 5));
     resultsArr.push(quickCash(value, 10));
     setResultsArr(resultsArr);
-  }, [value, quickCash]);
+  }, [value]);
 
   return (
     <>
