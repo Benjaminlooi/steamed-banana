@@ -24,7 +24,7 @@ export function QuickCashAlgo() {
     };
 
     const resultsArr = [];
-    resultsArr.push(quickCash(value, 0));
+    resultsArr.push(parseFloat(value).toFixed(precision));
     resultsArr.push(quickCash(value, 0.05));
     resultsArr.push(quickCash(value, 1));
     resultsArr.push(quickCash(value, 5));
