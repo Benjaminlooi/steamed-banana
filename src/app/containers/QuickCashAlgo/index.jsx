@@ -29,7 +29,7 @@ export function QuickCashAlgo() {
     resultsArr.push(quickCash(value, 5));
     resultsArr.push(quickCash(value, 10));
     setResultsArr(resultsArr);
-  }, [value]);
+  }, [value, quickCash]);
 
   return (
     <>
