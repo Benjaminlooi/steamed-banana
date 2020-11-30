@@ -14,6 +14,7 @@ import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { QuickCashAlgo } from './containers/QuickCashAlgo';
 
 export function App() {
   return (
@@ -27,6 +28,7 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/quick-cash-algo" component={QuickCashAlgo} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
